@@ -11,11 +11,10 @@ public class GameManager : MonoBehaviour
     private int playerPoints = 0;
     public int PlayerPoints { get => playerPoints; set => playerPoints = value; }
 
-    [SerializeField] public int health = 5;
+    [SerializeField] public int lifePoints = 5;
 
     private void Awake()
     {
-        //PlayerPrefs.SetInt("health", health);
         //Singleton, reference Instance to this object instance
         if (Instance != null)
         {
@@ -31,22 +30,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        PlayerPrefs.SetInt("health", health);
-    }
-    public static void SubstractInt(string key, int numberToSubstract)
-    {
-        //Check if the key exist
-        if (PlayerPrefs.HasKey(key))
-        {
-            //Read old value
-            int value = PlayerPrefs.GetInt(key);
-
-            //De-Increment
-            value -= numberToSubstract;
-
-            //Save it back
-            PlayerPrefs.SetInt(key, value);
-        }
+        PlayerPrefs.SetInt("health", lifePoints);
     }
 
 
